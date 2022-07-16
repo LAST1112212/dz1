@@ -1,33 +1,33 @@
 const block = document.querySelector(".block")
 
-let xPos = 0;
-let yPos = 0;
+let posX = 0;
+let posY = 0;
 
 function move() {
-  if(xPos < 340 && yPos === 0) {
-    xPos += 16;
-    block.style.left = `${xPos}px`;
+  if(posX < 340 && posY === 0) {
+    posX += 16;
+    block.style.left = `${posX}px`;
     setTimeout(() => {
       move();
-    }, 400);
-  }  else if (xPos >= 340 && yPos < 340 ) {
-    yPos += 16;
-    block.style.top = `${yPos}px`;
+    }, 200);
+  }  else if (posX >= 340 && posY < 340 ) {
+    posY += 16;
+    block.style.top = `${posY}px`;
     setTimeout(() => {
       move();
-    }, 300);
-  }  else if (xPos > 0 && yPos >= 340) {
-    xPos -= 16;
-    block.style.left = `${xPos}px`;
-    setTimeout(() => {
-      move();
-    }, 200)
-  } else if (xPos === 0 && yPos > 0) {
-    yPos -= 16;
-    block.style.top = `${yPos}px`;
+    }, 150);
+  }  else if (posX > 0 && posY >= 340) {
+    posX -= 16;
+    block.style.left = `${posX}px`;
     setTimeout(() => {
       move();
     }, 100)
+  } else if (posX === 0 && posY > 0) {
+    posY -= 16;
+    block.style.top = `${posY}px`;
+    setTimeout(() => {
+      move();
+    }, 50)
   }
 }
 move()
